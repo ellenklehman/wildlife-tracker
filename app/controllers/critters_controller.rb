@@ -2,6 +2,7 @@ class CrittersController < ApplicationController
 
   def index
     @critters = Critter.all
+    @sightings = Sighting.all
     render('critters/index.html.erb')
   end
 

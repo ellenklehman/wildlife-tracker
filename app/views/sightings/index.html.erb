@@ -1,0 +1,19 @@
+
+
+  <h3>Find all sightings in a time period: </h3>
+   <form action="/sightings" method="post">
+      <label for="sightings_start_date">Start date</label>
+      <input id="sightings_start_date" name="sighting[start_date]" type="date">
+      <label for="sightings_end_date">End date</label>
+      <input id="sightings_end_date" name="sighting[end_date]" type="date">
+      <button type= 'submit'>Run report</button>
+    </form>
+
+
+  <ul>
+    <% if @report != nil %>
+    <% @report.each do |sighting| %>
+      <h3><li>Date: <%=sighting.date %> Critter: <%=sighting.critter.name%> </br> Lat: <%=sighting.lat%> Long: <%=sighting.long%> </a></li></h3>
+    <%end%>
+    <%end%>
+  </ul>
