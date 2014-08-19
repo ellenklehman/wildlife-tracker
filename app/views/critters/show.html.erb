@@ -1,5 +1,23 @@
 <h1><%= @critter.name %></h1>
 
+<h3>Sightings:</h3>
+<ol>
+  <% @critter.sightings.each do |sighting| %>
+    <li><a href="/sightings/<%=sighting.id%>">Date: <%= sighting.date %></br> Latitude: <%= sighting.lat %> Longitude: <%= sighting.long %></a></li>
+  <% end %>
+</ol>
+
+<h3> Add a sighting:</h3>
+  <form action="/<%= @critter.id%>" method="post">
+    <label for= "sighting_date">Date?</label>
+    <input id ="sighting_date" name ="sighting[date]" type="date">
+    <label for= "sighting_lat">Latitude?</label>
+    <input id ="sighting_lat" name ="sighting[lat]" type="decimal">
+    <label for= "sighting_long">Longitude?</label>
+    <input id ="sighting_long" name ="sighting[long]" type="decimal">
+    <button>Add Critter</button>
+  </form>
+
 <h3> Update your critter's name:</h3>
   <form action="/<%= @critter.id%>" method="post">
     <input name="_method" type="hidden" value="patch">
@@ -8,7 +26,7 @@
     <button>Change Critter</button>
   </form>
 
-<h3> Remove from list </h3>
+<h3> Remove Critter</h3>
 <p><a href="/<%=@critter.id %>"
   data-confirm="Are you sure"
   data-method="Delete"

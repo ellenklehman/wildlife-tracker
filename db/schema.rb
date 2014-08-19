@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819162034) do
+ActiveRecord::Schema.define(version: 20140819182919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "create_sightings", force: true do |t|
+  end
+
   create_table "critters", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sightings", force: true do |t|
+    t.integer  "critter_id"
+    t.date     "date"
+    t.decimal  "lat"
+    t.decimal  "long"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
