@@ -1,0 +1,13 @@
+<h1> Critters </h1>
+
+<ul>
+  <% @critters.each do |critter| %>
+    <h3><li><a href = "/<%=critter.id%>"><%=critter.name %></a></li></h3>
+  <%end%>
+</ul>
+
+<form action="/" method="post">
+  <label for= "critters">Saw Something?</label>
+  <input id ="critters" name ="critter[name]" type="text">
+  <button>Add Critter</button>
+</form>
