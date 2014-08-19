@@ -1,0 +1,13 @@
+
+default: &default
+  adapter: postgresql
+
+
+development:
+  <<: *default
+  database: wildlife_development
+
+test:
+  <<: *default
+  database: wildlife_test
+
